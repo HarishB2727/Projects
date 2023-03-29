@@ -1,0 +1,9 @@
+Developing a portal for a logistics management company. The company owns many delivery trucks.
+On the home page of the portal we can be able to see a list of all free trucks and assigned trucks. 
+From this page, we can also click a button to mark a truck as assigned to a task. 
+Once assigned to a task, it is longer visible on the free trucks page.
+
+there is another page that displays all the trucks currently delivering a task. 
+On this page we can also able to mark the task as completed and send the truck back to the free trucks page.
+
+Only authenticated warehouse managers with a username and password is able to access this portal 
