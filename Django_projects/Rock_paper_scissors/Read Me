@@ -1,0 +1,6 @@
+Rock Paper Scissors Game:
+-----------------------------------
+In the template created two blanks..those are input fields of form
+on submiting form, i declare it as POST Method
+using the POST request,i collected data from input fields and 
+applied rock paper Scissor game logics and decided the winner of the game
