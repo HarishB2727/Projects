@@ -1,0 +1,6 @@
+This project will show the available covid Vaccines doses at a given region in India
+---------------------------------------------------------------------------------------------
+I have used covid public API's, and i fetched the data using requests module
+The data i fetched is JSon data which is raw data.
+from the raw data i took only the necessary information like hospital name, location, date, and available doses
+and passed information to template
