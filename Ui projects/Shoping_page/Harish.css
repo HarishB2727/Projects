@@ -1,0 +1,240 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+
+#login_{
+    float:right;
+}
+.nav-buttons:hover{
+    text-decoration: underline;
+  }
+.logins{
+    margin-left: 600px;
+}
+
+/* .searchs{
+    margin-left: 20px;
+} */
+
+.container_ {
+    display: flex;
+  }
+.image_ {
+    flex: 60%;
+    background-image: url("What-are-ways-to-promote-a-clothing-e-Commerce-website-min.jpg");
+    background-size: cover;
+    height: 500px;
+  }
+.text_ {
+    flex: 40%;
+    padding: 20px;
+    font-size: 20px;
+  }
+
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: center; */
+  }
+  .card {
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    margin: 20px;
+    padding: 10px;
+    text-align: center;
+  }
+  .card img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  .price {
+    font-weight: bold;
+    font-size: 20px;
+    color: #ff5722;
+  }
+.card-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        
+      }
+      .card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 225px;
+        height: 350px;
+        margin: 10px;
+        border: 1px solid #ddd;
+        z-index: -1;
+        box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+      }
+      .card-image {
+        width: 100%;
+        height: 60%;
+        background-image: url('path/to/image.jpg');
+        background-size: cover;
+        background-position: center;
+      }
+      .card-text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 40%;
+        padding: 10px;
+        text-align: center;
+      }
+      .card-text h2 {
+        margin: 0;
+        font-size: 20px;
+        font-weight: bold;
+      }
+      .card-text p {
+        margin: 10px 0 0;
+        font-size: 16px;
+      }
+
+.card-containerh {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .cardh {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 225px;
+        height: 350px;
+        margin: 10px;
+        border: 1px solid #ddd;
+        box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+      }
+      .card-imageh {
+        width: 100%;
+        height: 60%;
+        /* background-image: url('path/to/image.jpg'); */
+        background-size: cover;
+        background-position: center;
+      }
+      .card-texth {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 40%;
+        padding: 10px;
+        text-align: center;
+      }
+      .card-texth h2 {
+        margin: 0;
+        font-size: 20px;
+        font-weight: bold;
+      }
+      .card-texth p {
+        margin: 10px 0 0;
+        font-size: 16px;
+      }
+
+      .card-circle {
+        display: inline-block;
+        text-align: center;
+        /* margin: 0 10px; */
+      }
+      
+      .card-circle-image {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin: 0 auto;
+      }
+      
+      .card-circle-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      
+      .card-circle-content {
+        text-align: center;
+        margin-top: 10px;
+      }
+      
+      .card-circle-content h2 {
+        margin: 0;
+        font-size: 20px;
+      }
+      
+      .card-circle-content p {
+        margin: 0;
+        font-size: 16px;
+      }
+      
+      footer {
+        background-color: #333;
+        color: #fff;
+        padding: 50px 0;
+      }
+      
+      .footer-top {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-bottom: 30px;
+      }
+      
+      .footer-column {
+        width: calc(25% - 20px);
+        margin-bottom: 20px;
+      }
+      
+      .footer-column h4 {
+        margin-bottom: 15px;
+      }
+      
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      
+      ul li {
+        margin-bottom: 5px;
+      }
+      
+      ul li a {
+        color: #fff;
+      }
+      
+      .social-icons {
+        display: flex;
+        align-items: center;
+      }
+      
+      .social-icons li {
+        margin-right: 10px;
+      }
+      
+      .social-icons a {
+        color: #fff;
+        font-size: 20px;
+      }
+      
+      .footer-bottom {
+        text-align: center;
+      }
+      
