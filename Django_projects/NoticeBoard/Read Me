@@ -1,0 +1,4 @@
+The notice board has SIX (6) spots for putting up a notice. A notice is a block of text containing 3 components: title, text, and a contact number.
+--------------------
+The notice board operates on this logic: Whenever a new notice has to be posted, it checks if there is an available space on the board; if available,
+that space will be occupied. Otherwise, the notice board replaces the oldest notice currently on the board with the new notice.
