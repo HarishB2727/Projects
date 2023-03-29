@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% if authenticated_student_id %}
+    <p>assigned trucks</p>
+    {% for truck_number in assign_trucks %}
+    <table>
+        <tr>
+            <td>truck_number : {{truck_number}}</td>
+            <td><form method="POST" action="{% url 'truck_delivery:assign_data' truck_number %}">
+                {% csrf_token %}
+                
+                <input type="submit" value="unassign">
+            </form></td>
+        </tr>
+    </table>
+    {% endfor %}
+    <p>un-assigned trucks</p>
+    {% for truck_number in unassign_trucks %}
+    <table>
+        <tr>
+            <td>truck_number : {{truck_number}}</td>
+            <td><form method="POST" action="{% url 'truck_delivery:unassign_data' truck_number %}">
+                {% csrf_token %}
+                
+                <input type="submit" value="assign">
+            </form></td>
+        </tr>
+    </table>
+    {% endfor %}
+    {% else %}
+        You are not authenticated. Please login <a href="{% url 'truck_delivery:login' %}">here.</a>
+    
+    {% endif %}
+    <a href="{% url 'truck_delivery:logout' %}">Logout</a>
+
+</body>
+</html>

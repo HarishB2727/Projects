@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        {% if winner %}
+            <p>Congrats, {{winner}} has won!</p>
+        {% endif %}
+        <form action="{% url 'show_board' %}" method="POST">
+            {% csrf_token %}
+            <table>
+            {% for row in board %}
+                <tr>
+                    {% for column in row %}
+                    {% if column.1 != '' %}
+                        <td><input name="{{column.0}}" value="{{column.1}}" type="text" editable="false" size="1"></td>
+                    {% else %}
+                        <td><input name="{{column.0}}" type="text" size="1"></td>
+                    {% endif %}
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+            </table>
+            <input type="submit" value="Make your move">
+        </form>
+    </body>
+</html>

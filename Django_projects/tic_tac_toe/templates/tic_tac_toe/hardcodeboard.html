@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h3>{{current_player}}'s turn</h3>
+        <table>
+        {% for row in board%}
+            <tr>
+                {% for column in row %}
+                <td>{{column.0}}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+        </table>
+    </body>
+</html>

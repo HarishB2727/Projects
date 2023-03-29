@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="http://127.0.0.1:8000/RPS/game" method="POST">
+        {% csrf_token %}
+        <label>player1:</label>
+        <select name="player1">
+          <option value="" selected disabled hidden>{{player1}}</option>
+          <option value="rock" >Rock</option>
+          <option value="paper" >Paper</option>
+          <option value="scissor">Scissor</option>
+        </select>
+        <span>VS</span>
+        <label>player2:</label>
+        <select name = "player2" >
+          <option value="" selected disabled hidden>{{player2}}</option>
+          <option value="rock">Rock</option>
+          <option value="paper">Paper</option>
+          <option value="scissor">Scissor</option>
+        </select>
+        <br><br>
+        
+        <input type="submit" value="Submit">
+      </form>
+      <p>{{winner}}</p>
+</body>
+</html>

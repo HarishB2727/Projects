@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>notice board</title>
+    </head>
+    <body>
+        <style>
+            .container{
+                display: grid;
+                grid-template-columns: auto auto auto;
+                grid-template-rows: auto auto auto;
+                justify-content: center;
+                align-items: center;
+                column-gap: 10px;
+
+            }
+            .b1{
+                display: inline-block;
+                flex-direction: row;
+                flex-wrap: wrap;
+                height: 300px;
+                width: 200px;
+                border: 1px solid black;
+                justify-content: center;
+                align-items: center;
+                margin-top: 10px;
+            }
+        </style>
+        <h1>notice board</h1>
+        
+        <div class="container">
+            {% for item in data %}
+            <div class="b1">
+                <h6>{{item.title}}</h6>
+                <p>{{item.text}}</p>
+                <p>{{item.contact}}</p>
+            </div>
+            {% endfor %}
+        </div>
+    <div>
+        <form action="http://127.0.0.1:8000/Noticeboard/data" method ="POST">
+            {% csrf_token %}
+            <label for="title">Title:</label>
+            <input type="text" name="title"><br>
+            <label for="Text">Text:</label>
+            <input type="text" name="text"><br><br>
+            <label for="Text">contact:</label>
+            <input type="text" name="contact_number"><br><br>
+            <input type="submit" value="Submit">
+        </form> 
+    </div>
+          
+          <!-- {{data}} -->
+    </body>

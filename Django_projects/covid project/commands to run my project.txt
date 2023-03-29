@@ -1,0 +1,5 @@
+commands to run my project
+
+myproject\Scripts\activate.bat
+cd myproject
+py manage.py runserver
