@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+</style>
+</head>
+<body>
+
+<h1>A Fancy Table</h1>
+
+<table id="customers">
+  <tr>
+    <th>Name</th>
+    <th>age</th>
+    <th>weigth</th>
+    <th>height</th>
+  </tr>
+  <tr>
+    <td>{{ name }}</td>
+    <td>{{ client_datas.age }}</td>
+    <td>{{ client_datas.weight }}</td>
+    <td>{{ client_datas.height }}</td>
+  </tr>
+</table>
+<br>
+
+
+<h1>Food Table</h1>
+<table id="customers">
+    <tr>
+      <th>item</th>
+      <th>calories</th>
+      <th>fat</th>
+      <th>carbs</th>
+      <th>protein</th>
+      <th>quantity</th>
+    </tr>
+    {% for item in food %}
+    <tr>
+      <td>{{ item.item_name }}</td>
+      <td>{{ item.calories }}</td>
+      <td>{{ item.fat }}</td>
+      <td>{{ item.carbs }}</td>
+      <td>{{ item.protein }}</td>
+      <td>
+        <form action="{% url 'fitness:add_diet' name item.item_name %}" method ="POST">
+            {% csrf_token %}
+            <label for="quantity"></label>
+            <input type="number" name="quantity">
+            <input type="submit" value="add">
+        </form> 
+    </td>
+    </tr>
+    {% endfor %}
+</table>
+<br>
+
+<h1>diet Table</h1>
+<table id="customers">
+    <tr>
+      <th>item</th>
+      <th>calories</th>
+      <th>fat</th>
+      <th>carbs</th>
+      <th>protein</th>
+      <th>quantity</th>
+    </tr>
+    {% for diet_ in diet %}
+    <tr>
+      <td>{{ diet_.food_table.item_name }}</td>
+      <td>{{ diet_.sub_calories }}</td>
+      <td>{{ diet_.sub_fat }}</td>
+      <td>{{ diet_.sub_carbs }}</td>
+      <td>{{ diet_.sub_protein }}</td>
+      <td>{{ diet_.quantity }}</td>
+      <td>
+        <a href="{% url 'fitness:delete_diet_colomn' name diet_.food_table.item_name %}">Delete</a>
+    </td>
+    </tr>
+    {% endfor %}
+    <tr>
+      <th>Total</th>
+      <th>{{ total_calories }}</th>
+      <th>{{ total_fat }}</th>
+      <th>{{ total_carbs }}</th>
+      <th>{{ total_protein }}</th>
+      <th>{{ total_quantity }}</th>
+    </tr>
+</table>
+{%for diet_ in diet %}
+
+<p>{{ diet_.food_table.calories }}</p>
+{% endfor %}
+
+{{ total_calories }}
+<!-- <p>{{ item.item_name }} {{ item.calories }} {{ item.fat}} {{ item.fat}} {{ item.carbs}} {{ item.protein}}</p> -->
+
+
+</body>
+</body>
+</html>
+
+
