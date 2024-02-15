@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Pie Chart Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <canvas id="myChart" width="400" height="400"></canvas>
+
+    <script>
+        var jsonStr = '{{ json_data|escapejs|safe }}';
+        var data = JSON.parse(jsonStr);
+    
+        // Convert dictionary data to arrays for chart.js
+        var labels = Object.keys(data);
+        var values = Object.values(data);
+    
+        // Create a pie chart
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: labels,
+                datasets: [{
+                    data: values,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: false,
+                maintainAspectRatio: false
+            }
+        });
+    </script>
+    
+    <p> {{product_volume}} </p>
+</body>
+
+</html>

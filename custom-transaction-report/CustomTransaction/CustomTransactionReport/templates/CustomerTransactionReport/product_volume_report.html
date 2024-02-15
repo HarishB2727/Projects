@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Product Volume Report</title>
+	<style>
+		table {
+			border-collapse: collapse;
+			width: 100%;
+			margin-top: 20px;
+		}
+		th, td {
+			text-align: left;
+			padding: 8px;
+			border: 1px solid black;
+		}
+		th {
+			background-color: #4CAF50;
+			color: white;
+		}
+		main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2em;
+}
+
+section {
+    margin-bottom: 2em;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+fieldset {
+    margin: 1em 0;
+    border: none;
+}
+
+legend {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5em;
+}
+
+input[type="number"],
+input[type="date"],
+input[type="text"],
+select {
+    padding: 0.5em;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    margin-bottom: 0.5em;
+}
+
+button[type="submit"] {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 0.5em 1em;
+    border-radius: 4px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #3e8e41;
+}
+
+#report_results {
+    margin-top: 2em;
+    padding: 1em;
+    background-color: #f5f5f5;
+}
+	</style>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+	<h1 style="color: green; text-align: center;">Product Volume Report</h1>
+	<p style="text-align: center;">Report generated from {{ date_from }} to {{ date_to }}</p>
+	<section>
+		<h2>Filter Settings</h2>
+		<form method="POST" action="{% url 'Transaction:filter' name %}">
+			{% csrf_token %}
+			<fieldset>
+				<legend>Total Amount</legend>
+				<label for="amount_lower">Lower Limit:</label>
+				<input type="number" id="amount_lower" name="amount_lower" min="0" step="1">
+				<label for="amount_upper">Upper Limit:</label>
+				<input type="number" id="amount_upper" name="amount_upper" min="0" step="1">
+			</fieldset>
+			<fieldset>
+				<legend>PIN Code</legend>
+				<label for="pin_code">PIN Code:</label>
+				<input type="number" id="pin_code" name="pin_code" maxlength="6">
+			</fieldset>
+			<fieldset>
+				<legend>Customer</legend>
+				<label for="customer_name">Customer Name:</label>
+				<input type="text" id="customer_name" name="customer_name">
+			</fieldset>
+			<button type="submit">Apply Filters</button>
+		</form>
+	</section>
+	<section>
+		<!-- <p>{{ product_volume }}</p> -->
+
+
+		<div>
+			<h2>Product Volume Pie Chart</h2>
+			<!-- <img src="customer_volume_pie_chart.png" alt="Customer Volume Pie Chart"> -->
+			<canvas id="myChart" width="1300" height="600"></canvas>
+	
+		<script>
+			var jsonStr = '{{ json_data|escapejs|safe }}';
+			var data = JSON.parse(jsonStr);
+		
+			// Convert dictionary data to arrays for chart.js
+			var labels = Object.keys(data);
+			var values = Object.values(data);
+		
+			// Create a pie chart
+			var ctx = document.getElementById('myChart').getContext('2d');
+			var myChart = new Chart(ctx, {
+				type: 'pie',
+				data: {
+					labels: labels,
+					datasets: [{
+						data: values,
+						borderWidth: 1
+					}]
+				},
+				options: {
+					responsive: false,
+					maintainAspectRatio: false
+				}
+			});
+		</script>
+		</div>
+
+		<p>Descriptive Statistics:</p>
+	<table>
+		<tr>
+			<th>Product Name</th>
+			<th>quantites</th>
+		</tr>
+		{% for product, value in product_volume.items %}
+		<tr>
+			<td>{{ product }}</td>
+			<td>{{ value }}</td>
+			
+		</tr>
+		{% endfor %}
+	</table>
+	<p>click here to go <a href=" {% url 'Transaction:Home' %}">Home </a>page</p>
+	</section>
+</body>
+</html>
